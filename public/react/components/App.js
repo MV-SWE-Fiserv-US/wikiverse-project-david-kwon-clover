@@ -27,7 +27,7 @@ export const App = () => {
 		<main className="landing-page">
       <h1>WikiVerse</h1>
 			<h2>An interesting 📚</h2>
-			<PagesList pages={pages} setSinglePage={setSinglePage}/>
+      {singlePage ? <ArticleDetails singlePage={singlePage} /> : <PagesList pages={pages} setSinglePage={setSinglePage}/> }
 		</main>
   )
 }
