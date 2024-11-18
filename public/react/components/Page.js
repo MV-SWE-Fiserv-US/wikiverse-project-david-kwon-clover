@@ -1,7 +1,7 @@
 import React from 'react'
 
-export const Page = (props) => {
+export const Page = ({ page, setSinglePage }) => {
   return <>
-    <h3>{props.page.title}</h3>
+    <h3 onClick={() =>  setSinglePage(page)}>{page.title}</h3>
   </>
 }

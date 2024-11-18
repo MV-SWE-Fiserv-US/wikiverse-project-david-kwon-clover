@@ -6,6 +6,7 @@ import apiURL from '../api'
 
 export const App = () => {
   const [pages, setPages] = useState([])
+  const [singlePage, setSinglePage] = useState(null);
 
   async function fetchPages () {
     try {
@@ -22,10 +23,10 @@ export const App = () => {
   }, [])
 
   return (
-		<main>
+		<main className="landing-page">
       <h1>WikiVerse</h1>
 			<h2>An interesting 📚</h2>
-			<PagesList pages={pages} />
+			<PagesList pages={pages} setSinglePage={setSinglePage}/>
 		</main>
   )
 }
