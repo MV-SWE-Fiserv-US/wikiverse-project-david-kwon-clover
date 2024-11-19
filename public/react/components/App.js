@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { PagesList } from "./PagesList";
 import ArticleDetails from "./ArticleDetails";
+import Form from "./Form";
 
 // import and prepend the api url to any fetch calls
 import apiURL from "../api";
@@ -28,12 +29,15 @@ export const App = () => {
     <main className="landing-page">
       <h1>WikiVerse</h1>
       <h2>An interesting hub for articles📚</h2>
-      {slug ? (
-        <ArticleDetails slug={slug} setSlug={setSlug} />
+      {slug || formActive ? (
+        slug && <ArticleDetails slug={slug} setSlug={setSlug} /> ||
+        formActive && <Form />
       ) : (
-        <PagesList pages={pages} setSlug={setSlug} />
+        <>
+          <PagesList pages={pages} setSlug={setSlug} />
+          <button type="button" className="article-add-button" onClick={() => setFormActivve(true)}>Add your own article</button>
+        </>
       )}
-      <button type="button" className="article-add-button" onClick={() => setFormActivve(true)}>Add your own article</button>
     </main>
   );
 };
