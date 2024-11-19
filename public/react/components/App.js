@@ -30,12 +30,18 @@ export const App = () => {
       <h1>WikiVerse</h1>
       <h2>An interesting hub for articles📚</h2>
       {slug || formActive ? (
-        slug && <ArticleDetails slug={slug} setSlug={setSlug} /> ||
-        formActive && <Form />
+        (slug && <ArticleDetails slug={slug} setSlug={setSlug} />) ||
+        (formActive && <Form />)
       ) : (
         <>
           <PagesList pages={pages} setSlug={setSlug} />
-          <button type="button" className="article-add-button" onClick={() => setFormActivve(true)}>Add your own article</button>
+          <button
+            type="button"
+            className="article-add-button"
+            onClick={() => setFormActivve(true)}
+          >
+            Add your own article
+          </button>
         </>
       )}
     </main>
