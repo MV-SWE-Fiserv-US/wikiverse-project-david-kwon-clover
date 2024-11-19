@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import apiURL from '../api';
 
-const ArticleDetails = ({ slug }) => {
+const ArticleDetails = ({ slug, setSlug }) => {
   const [articleDetails, setArticleDetails] = useState({
     title: "Loading..",
     author: {
@@ -31,6 +31,10 @@ const ArticleDetails = ({ slug }) => {
     return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`
   }
 
+  function handleBackClick() {
+    setSlug("");
+  }
+
   useEffect(() => {
     fetchArticleDetails(slug);
   }, [])
@@ -47,7 +51,7 @@ const ArticleDetails = ({ slug }) => {
           return <li key={tag.id}>{tag.name}</li>
         })}
       </ul>
-      <button type='button' className='article-back-button'>Back to Wiki List</button>
+      <button type='button' className='article-back-button' onClick={handleBackClick}>Back to Wiki List</button>
     </article>
   )
   
