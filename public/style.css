@@ -96,3 +96,7 @@ textarea {
   font-size: large;
 }
 
+.form-feedback-message {
+  color: red;
+}
+

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import apiURL from "../api";
 
-const Form = ({ setFormActive }) => {
+const Form = ({ setFormActive, fetchPages }) => {
   const [formData, setFormData] = useState({
     title: "",
     content: "",
@@ -9,6 +10,28 @@ const Form = ({ setFormActive }) => {
     tags: "",
   });
 
+  const [feedbackMessage, setFeedbackMessage] = useState("");
+
+  async function postArticle(articleData) {
+    try {
+        const response = await fetch(`${apiURL}/wiki`, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(
+                articleData
+            )
+        });
+        if(response.ok) {
+            setFeedbackMessage("Your article was successfully posted");
+        }
+        fetchPages();
+      } catch (err) {
+        setFeedbackMessage("Oh no an error! ", err);
+      }
+  } 
+
   function handleChange(e) {
     const { name, value } = e.target;
     setFormData((previousFormData) => ({ ...previousFormData, [name]: value }));
@@ -16,7 +39,7 @@ const Form = ({ setFormActive }) => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(formData);
+    postArticle(formData);
   }
 
   function handleBackClick() {
@@ -24,7 +47,8 @@ const Form = ({ setFormActive }) => {
   }
 
   return (
-    <form className="add-article-form" onSubmit={handleSubmit}>
+      <form className="add-article-form" onSubmit={handleSubmit}>
+       <h3 className="form-feedback-message">{feedbackMessage}</h3>
       <input
         type="text"
         name="title"

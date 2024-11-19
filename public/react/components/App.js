@@ -31,7 +31,7 @@ export const App = () => {
       <h2>An interesting hub for articles📚</h2>
       {slug || formActive ? (
         (slug && <ArticleDetails slug={slug} setSlug={setSlug} />) ||
-        (formActive && <Form setFormActive={setFormActive} />)
+        (formActive && <Form setFormActive={setFormActive} fetchPages={fetchPages}/>)
       ) : (
         <>
           <PagesList pages={pages} setSlug={setSlug} />
