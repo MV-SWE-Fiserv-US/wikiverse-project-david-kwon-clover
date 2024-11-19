@@ -70,7 +70,9 @@ main {
   height: 6%;
   margin-top: 5%;
   font-size: large;
+  font-weight: bolder;
   cursor: pointer;
+  color: red;
 }
 
 .add-article-form {
