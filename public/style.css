@@ -50,3 +50,10 @@ main {
   margin-bottom: 10%;
   text-align: center;
 }
+
+.article-back-button {
+  margin-top: 5%;
+  height: 6%;
+  font-size: large;
+  cursor: pointer;
+}

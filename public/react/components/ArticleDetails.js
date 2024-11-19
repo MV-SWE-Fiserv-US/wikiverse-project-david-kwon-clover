@@ -47,6 +47,7 @@ const ArticleDetails = ({ slug }) => {
           return <li key={tag.id}>{tag.name}</li>
         })}
       </ul>
+      <button type='button' className='article-back-button'>Back to Wiki List</button>
     </article>
   )
   
