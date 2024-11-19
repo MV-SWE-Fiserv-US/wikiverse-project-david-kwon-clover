@@ -30,7 +30,7 @@ export const App = () => {
       <h1>WikiVerse</h1>
       <h2>An interesting hub for articles📚</h2>
       {slug || formActive ? (
-        (slug && <ArticleDetails slug={slug} setSlug={setSlug} />) ||
+        (slug && <ArticleDetails slug={slug} setSlug={setSlug} fetchPages={fetchPages}/>) ||
         (formActive && <Form setFormActive={setFormActive} fetchPages={fetchPages}/>)
       ) : (
         <>

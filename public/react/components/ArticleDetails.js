@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import apiURL from "../api";
 
-const ArticleDetails = ({ slug, setSlug }) => {
+const ArticleDetails = ({ slug, setSlug, fetchPages }) => {
   const [articleDetails, setArticleDetails] = useState({
     title: "Loading..",
     author: {
@@ -16,6 +16,8 @@ const ArticleDetails = ({ slug, setSlug }) => {
     ],
   });
 
+  const [feedbackMessage, setFeedbackMessage] = useState("");
+
   async function fetchArticleDetails(slug) {
     try {
       const response = await fetch(`${apiURL}/wiki/${slug}`);
@@ -26,6 +28,19 @@ const ArticleDetails = ({ slug, setSlug }) => {
     }
   }
 
+  async function deleteArticle(slug) {
+    const response = await fetch(`${apiURL}/wiki/${slug}`, {
+      method: "DELETE"
+    });
+    if(response.ok) {
+      setFeedbackMessage("Article deleted successfully.. redirecting to homepage")
+      fetchPages();
+      setTimeout(() => {
+        location.reload();
+      }, 2000)
+    }
+  }
+
   function formatDate(dateString) {
     const date = new Date(dateString);
     return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
@@ -33,6 +48,10 @@ const ArticleDetails = ({ slug, setSlug }) => {
 
   function handleBackClick() {
     setSlug("");
+  }
+
+  function handleDelete() {
+    deleteArticle(slug);
   }
 
   useEffect(() => {
@@ -60,6 +79,14 @@ const ArticleDetails = ({ slug, setSlug }) => {
       >
         Back to Wiki List
       </button>
+      <button
+        type="button"
+        className="article-delete-button"
+        onClick={handleDelete}
+      >
+        DELETE Article
+      </button>
+      <h4 className="form-feedback-message">{feedbackMessage}</h4>
     </article>
   );
 };

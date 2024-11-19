@@ -56,9 +56,17 @@ main {
   height: 6%;
   font-size: large;
   cursor: pointer;
+  margin-right: 4%;
 }
 
 .article-add-button {
+  height: 6%;
+  margin-top: 5%;
+  font-size: large;
+  cursor: pointer;
+}
+
+.article-delete-button {
   height: 6%;
   margin-top: 5%;
   font-size: large;
