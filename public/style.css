@@ -71,12 +71,13 @@ main {
   justify-content: flex-start;
   height: 80%;
   width: 40%;
-  margin-top: 5%;
+  margin-top: 2%;
 }
 
 input, textarea {
   margin-top: 2%;
   margin-bottom: 2%;
+  font-size: medium;
 }
 
 textarea {
@@ -89,3 +90,9 @@ textarea {
   font-size: large;
   cursor: pointer;
 }
+
+#formTitleInput {
+  height: 10%;
+  font-size: large;
+}
+

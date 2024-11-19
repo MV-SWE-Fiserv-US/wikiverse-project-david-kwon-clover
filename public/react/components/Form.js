@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Form = () => {
+const Form = ({ setFormActive }) => {
   const [formData, setFormData] = useState({
     title: "",
     content: "",
@@ -16,13 +16,19 @@ const Form = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
+    console.log(formData);
+  }
+
+  function handleBackClick() {
+    setFormActive(false);
   }
 
   return (
-    <form className="add-article-form">
+    <form className="add-article-form" onSubmit={handleSubmit}>
       <input
         type="text"
         name="title"
+        id="formTitleInput"
         placeholder="Article Title"
         required
         value={formData.title}
@@ -59,7 +65,8 @@ const Form = () => {
         value={formData.tags}
         onChange={handleChange}
       ></input>
-      <button className="form-submit-button">Create Page</button>
+      <button className="form-submit-button" type="submit">Create Page</button>
+      <button className="article-back-button" type="button" onClick={handleBackClick}>Back to Articles</button>
     </form>
   );
 };

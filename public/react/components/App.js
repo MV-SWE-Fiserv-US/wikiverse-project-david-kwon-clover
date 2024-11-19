@@ -9,7 +9,7 @@ import apiURL from "../api";
 export const App = () => {
   const [pages, setPages] = useState([]);
   const [slug, setSlug] = useState("");
-  const [formActive, setFormActivve] = useState(false);
+  const [formActive, setFormActive] = useState(false);
 
   async function fetchPages() {
     try {
@@ -31,14 +31,14 @@ export const App = () => {
       <h2>An interesting hub for articles📚</h2>
       {slug || formActive ? (
         (slug && <ArticleDetails slug={slug} setSlug={setSlug} />) ||
-        (formActive && <Form />)
+        (formActive && <Form setFormActive={setFormActive} />)
       ) : (
         <>
           <PagesList pages={pages} setSlug={setSlug} />
           <button
             type="button"
             className="article-add-button"
-            onClick={() => setFormActivve(true)}
+            onClick={() => setFormActive(true)}
           >
             Add your own article
           </button>
