@@ -9,6 +9,23 @@ main {
   height: 100vh;
 }
 
+.pages-list {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5%;
+  height: 60%;
+  width: 50%;
+  overflow-y: auto;
+}
+
+.page {
+  margin-top: 2%;
+  margin-bottom: 2%;
+  border: 1px solid grey;
+  cursor: pointer;
+  text-align: center;
+}
+
 .landing-page {
   display: flex;
   flex-direction: column;
@@ -18,5 +35,18 @@ main {
 
 .article-details {
   height: 80%;
-  width: 90%;
+  width: 60%;
+  margin-top: 5%;
+  text-wrap: pretty;
+  font-size: x-large;
+}
+
+.article-header {
+  margin-top: 2%;
+}
+
+.article-content {
+  margin-top: 10%;
+  margin-bottom: 10%;
+  text-align: center;
 }

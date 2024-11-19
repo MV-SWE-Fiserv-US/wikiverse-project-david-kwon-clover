@@ -26,7 +26,7 @@ export const App = () => {
   return (
 		<main className="landing-page">
       <h1>WikiVerse</h1>
-			<h2>An interesting 📚</h2>
+			<h2>An interesting hub for articles📚</h2>
       {slug ? <ArticleDetails slug={slug} /> : <PagesList pages={pages} setSlug={setSlug} /> }
 		</main>
   )

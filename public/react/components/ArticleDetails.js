@@ -37,11 +37,11 @@ const ArticleDetails = ({ slug }) => {
 
   return (
     <article className='article-details'>
-      <h1 className='article-details-title'>{articleDetails.title}</h1>
-      <h4>Author: {articleDetails.author.name}</h4>
-      <h4>Published: {formatDate(articleDetails.createdAt.slice(0,10))}</h4>
-      <p>{articleDetails.content}</p>
-      <h5>Tags: </h5>
+      <h1 className='article-header'>{articleDetails.title}</h1>
+      <h4 className='article-header'>Author: {articleDetails.author.name}</h4>
+      <h4 className='article-header'>Published: {formatDate(articleDetails.createdAt.slice(0,10))}</h4>
+      <p className='article-content'>{articleDetails.content}</p>
+      <h5 className='article tags'>Tags: </h5>
       <ul>
         {articleDetails.tags.map((tag) => {
           return <li key={tag.id}>{tag.name}</li>
