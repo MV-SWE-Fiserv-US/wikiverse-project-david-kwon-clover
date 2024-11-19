@@ -24,9 +24,12 @@ const Form = ({ setFormActive, fetchPages }) => {
             )
         });
         if(response.ok) {
-            setFeedbackMessage("Your article was successfully posted");
+            setFeedbackMessage("Your article was successfully posted... redirecting to homepage");
+            fetchPages();
+            setTimeout(() => {
+                location.reload();
+            }, 2000);
         }
-        fetchPages();
       } catch (err) {
         setFeedbackMessage("Oh no an error! ", err);
       }
