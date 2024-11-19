@@ -8,6 +8,7 @@ import apiURL from "../api";
 export const App = () => {
   const [pages, setPages] = useState([]);
   const [slug, setSlug] = useState("");
+  const [formActive, setFormActivve] = useState(false);
 
   async function fetchPages() {
     try {
@@ -32,7 +33,7 @@ export const App = () => {
       ) : (
         <PagesList pages={pages} setSlug={setSlug} />
       )}
-      <button type="button" className="article-add-button">Add your own article</button>
+      <button type="button" className="article-add-button" onClick={() => setFormActivve(true)}>Add your own article</button>
     </main>
   );
 };
