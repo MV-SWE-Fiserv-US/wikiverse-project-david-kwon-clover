@@ -15,3 +15,8 @@ main {
   justify-content: flex-start;
   align-items: center;
 }
+
+.article-details {
+  height: 80%;
+  width: 90%;
+}
