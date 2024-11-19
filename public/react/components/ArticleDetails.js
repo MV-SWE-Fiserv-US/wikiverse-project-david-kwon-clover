@@ -68,8 +68,8 @@ const ArticleDetails = ({ slug, setSlug, fetchPages }) => {
       <p className="article-content">{articleDetails.content}</p>
       <h5 className="article tags">Tags: </h5>
       <ul>
-        {articleDetails.tags.map((tag) => {
-          return <li key={tag.id}>{tag.name}</li>;
+        {articleDetails.tags.map((tag, index) => {
+          return <li key={index}>{tag.name}</li>;
         })}
       </ul>
       <button

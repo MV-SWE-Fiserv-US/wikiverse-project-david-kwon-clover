@@ -10,6 +10,7 @@ export const App = () => {
   const [pages, setPages] = useState([]);
   const [slug, setSlug] = useState("");
   const [formActive, setFormActive] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
 
   async function fetchPages() {
     try {
@@ -29,12 +30,13 @@ export const App = () => {
     <main className="landing-page">
       <h1>WikiVerse</h1>
       <h2>An interesting hub for articles📚</h2>
+      <input type="text" placeholder="Search by title..." className="search-input" value={searchQuery} onChange={e => setSearchQuery(e.target.value)}></input>
       {slug || formActive ? (
         (slug && <ArticleDetails slug={slug} setSlug={setSlug} fetchPages={fetchPages}/>) ||
         (formActive && <Form setFormActive={setFormActive} fetchPages={fetchPages}/>)
       ) : (
         <>
-          <PagesList pages={pages} setSlug={setSlug} />
+          <PagesList pages={searchQuery ? pages.filter((page) => { return page.title.toLowerCase().includes(searchQuery)}) : pages} setSlug={setSlug} />
           <button
             type="button"
             className="article-add-button"
