@@ -32,6 +32,7 @@ export const App = () => {
       ) : (
         <PagesList pages={pages} setSlug={setSlug} />
       )}
+      <button type="button" className="article-add-button">Add your own article</button>
     </main>
   );
 };

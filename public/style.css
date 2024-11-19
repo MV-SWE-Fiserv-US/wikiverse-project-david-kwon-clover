@@ -57,3 +57,10 @@ main {
   font-size: large;
   cursor: pointer;
 }
+
+.article-add-button {
+  height: 6%;
+  margin-top: 5%;
+  font-size: large;
+  cursor: pointer;
+}
